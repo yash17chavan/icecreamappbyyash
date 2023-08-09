@@ -1,0 +1,73 @@
+<html>
+	<head>
+	<title> What next App by Yash chavan </title>
+	<style>
+		* { font-size : 100 px ; }
+		body {background-color : lightblue ; }
+	</style>
+	<script>
+		function find()
+		{
+			event.preventDefault() ;
+			let name = document.getElementById("name") ; 
+			let or = document.getElementById("or") ;
+			let tf = document.getElementById("tf") ;
+			let cs = document.getElementById("cs") ;
+			let sp = document.getElementById("sp") ;
+			let ans = document.getElementById("ans") ;
+
+			if (name.value == "")
+			{
+				alert("name cannot be empty ");
+				ans.innerHTML = "" ;
+				name.focus() ;
+				return ;
+			}
+
+			else if (name.value.trim() == "")
+			{
+				alert("name cannot be only spaces ");
+				name.value = "" ;
+				ans.innerHTML = "" ;
+				name.focus() ;
+				return ;
+			}
+
+			else if (! name.value.match(/^[A-Za-z ]+$/))
+			{
+				alert("name can be only aplhabates ");
+				name.value = "" ;
+				ans.innerHTML = "" ;
+				name.focus() ;
+				return ;
+			}
+
+			let topping = "" ;
+			if (or.checked)	topping += "Oreo";
+			if (tf.checked)	topping += "TF" ;
+			if (cs.checked)	topping += "Choclate Syrup" ;
+			if (sp.checked)	topping += "Sprinklers" ;
+
+			let msg = "name  " + name.value + " Toppings " + topping;
+			ans.innerHTML = msg ;
+			
+		}
+	</script>
+	</head>
+	<body>
+	<center>
+	<h1> Icecream app </h1>
+	<form onsubmit="find()">
+	<input type = "text" placeholder = "enter icecream name" id = "name" />
+	<br> <br>
+	<input type= "radio" id = "or" / >Oreo
+	<input type= "radio" id = "tf" />TF
+	<input type= "radio" id = "cs" />Choclate Syrup
+	<input type= "radio" id = "sp" />Sprinklers
+	<br> <br>
+	<input type= "submit" value = "Order"/>
+	</form>
+	<h2 id="ans" > </h2>
+	</center>
+	</body>
+</html>
